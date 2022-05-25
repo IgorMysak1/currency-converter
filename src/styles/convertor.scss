@@ -1,11 +1,13 @@
-@import "../styles//mediaQueryConstants.scss";
+@import "../styles/mediaQueryConstants.scss";
 .convertor {
   display: flex;
   justify-content: center;
   align-items: stretch;
   margin: 15px;
+
   @media (max-width: $md4) {
     margin: 10px 7px;
+    width: 100%;
   }
   input,
   select,
@@ -15,6 +17,10 @@
   }
   input {
     padding: 5px 10px;
+    border-radius: 0;
+    @media (max-width: $md4) {
+      width: 70%;
+    }
   }
   select {
     color: #4b7688;
@@ -34,6 +40,9 @@
     }
     &::-khtml-scrollbar {
       display: none;
+    }
+    @media (max-width: $md4) {
+      width: 30%;
     }
   }
 }
