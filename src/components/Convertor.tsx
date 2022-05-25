@@ -16,45 +16,51 @@ export const Convertor: React.FC<ConvertorProps> = ({
   setLastChangeCurrency,
   indexOfItems,
 }) => {
-  // changeCurrency and changeValue is very similar,
-  // I would be happy to discuss with you about best way to combine them because I have problems with that
-  const changeCurrency = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const currentCurrency = e.target.value;
-    const newConvertorItems = convertorItems.map((item, index) =>
+  const updateConvertorItem = (
+    currentProperty: string,
+    field: string,
+    fromCurrency: string,
+    value: string
+  ) =>
+    convertorItems.map((item, index) =>
       indexOfItems === index
-        ? { ...item, currency: currentCurrency }
+        ? { ...item, [field]: currentProperty }
         : {
             ...item,
             value: convertCurrency(
               listCurrency,
-              currentCurrency,
+              fromCurrency,
               item.currency,
-              convertorItems[indexOfItems].value
+              value
             ),
           }
     );
-    setConvertorItems(newConvertorItems);
+
+  const changeCurrency = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const currentCurrency = e.target.value;
+    setConvertorItems(
+      updateConvertorItem(
+        currentCurrency,
+        "currency",
+        currentCurrency,
+        convertorItems[indexOfItems].value
+      )
+    );
     setLastChangeCurrency({
-      value: convertorItems[indexOfItems].value,
       currency: currentCurrency,
+      value: convertorItems[indexOfItems].value,
     });
   };
   const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const currentValue = e.target.value;
-    const newConvertorItems = convertorItems.map((item, index) =>
-      indexOfItems === index
-        ? { ...item, value: currentValue }
-        : {
-            ...item,
-            value: convertCurrency(
-              listCurrency,
-              convertorItems[indexOfItems].currency,
-              item.currency,
-              currentValue
-            ),
-          }
+    setConvertorItems(
+      updateConvertorItem(
+        currentValue,
+        "value",
+        convertorItems[indexOfItems].currency,
+        currentValue
+      )
     );
-    setConvertorItems(newConvertorItems);
     setLastChangeCurrency({
       currency: convertorItems[indexOfItems].currency,
       value: currentValue,
