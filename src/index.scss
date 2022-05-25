@@ -1,0 +1,26 @@
+@import "./styles/mediaQueryConstants.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #d1f2de;
+  color: #fff;
+}
+._container {
+  max-width: $maxWidthContainer;
+  margin: 0 auto;
+  padding: 10px 25px;
+  @media (max-width: $md1) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3) {
+    max-width: none;
+    padding: 0 15px;
+  }
+}

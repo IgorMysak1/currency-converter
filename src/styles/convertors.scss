@@ -1,0 +1,27 @@
+@import "../styles//mediaQueryConstants.scss";
+.convertors {
+  background: #4b7688;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__title {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 22px;
+    span {
+      color: #a8bfc9;
+      padding: 0px 7px 0px 3px;
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    @media (max-width: $md3) {
+      justify-content: center;
+    }
+  }
+}

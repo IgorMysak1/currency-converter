@@ -1,0 +1,45 @@
+@import "../styles//mediaQueryConstants.scss";
+.convertor {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin: 15px;
+  @media (max-width: $md4) {
+    margin: 10px 7px;
+  }
+  input,
+  select,
+  option {
+    outline: transparent;
+    border: transparent;
+  }
+  input {
+    padding: 5px 10px;
+  }
+  select {
+    color: #4b7688;
+    border-radius: 0px;
+    background: #a8bfc9;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &::-moz-scrollbar {
+      display: none;
+    }
+    &::-o-scrollbar {
+      display: none;
+    }
+    &::-google-ms-scrollbar {
+      display: none;
+    }
+    &::-khtml-scrollbar {
+      display: none;
+    }
+  }
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

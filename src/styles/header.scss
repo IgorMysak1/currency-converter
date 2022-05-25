@@ -1,0 +1,23 @@
+@import "../styles//mediaQueryConstants.scss";
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  background: #4b7688;
+  @media (max-width: $md4) {
+    padding: 7px;
+  }
+  &__currency {
+    padding: 0px 10px;
+  }
+}
+.currency-header {
+  &__name {
+    padding-right: 5px;
+  }
+  &__value {
+  }
+}
