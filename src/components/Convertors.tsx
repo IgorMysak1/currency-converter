@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Currency, ListConvertors } from "../types/currency";
 import { Convertor } from "./Convertor";
+import { Currency, ListConvertors } from "../types/currency";
 import { convertCurrency } from "../utilits/convertCurrency";
 import { listOfConvertor } from "../constants/constant";
 import "../styles/convertors.scss";
@@ -8,7 +8,7 @@ import "../styles/convertors.scss";
 interface ConvertorsProps {
   listCurrency: Currency;
 }
-// { value: "", currency: "USD" }
+
 export const Convertors: React.FC<ConvertorsProps> = ({ listCurrency }) => {
   const [convertorItems, setConvertorItems] = useState<ListConvertors[]>(
     listOfConvertor.map((currency) => ({

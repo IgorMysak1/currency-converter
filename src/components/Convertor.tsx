@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import { Currency, ListConvertors } from "../types/currency";
 import { convertCurrency } from "../utilits/convertCurrency";
 import "../styles/convertor.scss";
+
 interface ConvertorProps {
   listCurrency: Currency;
   convertorItems: ListConvertors[];
@@ -9,6 +10,7 @@ interface ConvertorProps {
   setLastChangeCurrency: Dispatch<SetStateAction<ListConvertors>>;
   indexOfItems: number;
 }
+
 export const Convertor: React.FC<ConvertorProps> = ({
   listCurrency,
   convertorItems,
@@ -74,17 +76,13 @@ export const Convertor: React.FC<ConvertorProps> = ({
         value={convertorItems[indexOfItems].value}
         onChange={changeValue}
       />
-      <select name="select" defaultValue={"DEFAULT"} onChange={changeCurrency}>
+      <select
+        name="select"
+        value={convertorItems[indexOfItems].currency}
+        onChange={changeCurrency}
+      >
         {Object.keys(listCurrency).map((currency) => (
-          <option
-            value={
-              currency === convertorItems[indexOfItems].currency
-                ? "DEFAULT"
-                : currency
-            }
-            disabled={currency === convertorItems[indexOfItems].currency}
-            key={currency}
-          >
+          <option value={currency} key={currency}>
             {currency}
           </option>
         ))}
